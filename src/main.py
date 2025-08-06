@@ -12,14 +12,21 @@ if __name__ == "__main__":
     origem = int(sys.argv[2])
     destino = int(sys.argv[3])
 
-    #bellmanford(arquivo, origem, destino)
-
-    #caminho = "toy.txt"  # Altera conforme arquivo que será testado
     grafo = ler_grafo(arquivo)
-    grafo.printGrafo()
+    #ATENÇÃO. COMENTAR ESTA LINHA AO EXECUTAR OS GRAFOS MAIORES
+    grafo.printGrafo() #COMENTE ESTA LINHA !!!!!!!!!!!!!!!
 
-    caminho, custo = dijkstra(grafo, 0, 4)
-    print("\nO caminho foi:\n")
-    print(caminho)
-    print("\nO custo foi:\n")
-    print(custo)
+    print("Processando...")
+    print("-------------------------------------------------------------")
+    caminho_dij, custo_dij = dijkstra(grafo, origem, destino)
+    print("Algoritmo de Dijkstra:")
+    print("Caminho minimo:", caminho_dij)
+    print("Custo:", custo_dij)
+    #add print tempo e memoria aqui!
+    print("-------------------------------------------------------------")
+    caminho_bell, custo_bell = bellmanford(grafo, origem, destino)
+    print("Algoritmo Bellman-Ford:")
+    print("Caminho minimo:", caminho_bell)
+    print("Custo:", custo_bell)
+    #add print tempo e memoria aqui!
+    print("-------------------------------------------------------------")
